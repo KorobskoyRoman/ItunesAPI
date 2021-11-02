@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C7896222731E20000BE9C99 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7896212731E20000BE9C99 /* UserInfoViewController.swift */; };
+		9C7896242731E34400BE9C99 /* ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7896232731E34400BE9C99 /* ExtensionViewController.swift */; };
+		9C7896262731E62A00BE9C99 /* DetailAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7896252731E62A00BE9C99 /* DetailAlbumViewController.swift */; };
+		9C7896282731E81200BE9C99 /* AlbumsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7896272731E81200BE9C99 /* AlbumsTableViewCell.swift */; };
+		9C78962D2731F41300BE9C99 /* SongsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C78962C2731F41300BE9C99 /* SongsCollectionViewCell.swift */; };
 		9CD9EEE127308CA9004E029A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD9EEE027308CA9004E029A /* AppDelegate.swift */; };
 		9CD9EEEA27308CAB004E029A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CD9EEE927308CAB004E029A /* Assets.xcassets */; };
 		9CD9EEED27308CAB004E029A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CD9EEEB27308CAB004E029A /* LaunchScreen.storyboard */; };
@@ -36,6 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C7896212731E20000BE9C99 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		9C7896232731E34400BE9C99 /* ExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionViewController.swift; sourceTree = "<group>"; };
+		9C7896252731E62A00BE9C99 /* DetailAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAlbumViewController.swift; sourceTree = "<group>"; };
+		9C7896272731E81200BE9C99 /* AlbumsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsTableViewCell.swift; sourceTree = "<group>"; };
+		9C78962C2731F41300BE9C99 /* SongsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsCollectionViewCell.swift; sourceTree = "<group>"; };
 		9CD9EEDD27308CA9004E029A /* ItunesAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ItunesAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD9EEE027308CA9004E029A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CD9EEE927308CAB004E029A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -76,6 +86,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C7896292731E81E00BE9C99 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9CD9EF1027308F2A004E029A /* AuthViewController.swift */,
+				9CD9EF12273094DC004E029A /* SignUpViewController.swift */,
+				9CD9EF1427309572004E029A /* AlbumsViewController.swift */,
+				9C7896252731E62A00BE9C99 /* DetailAlbumViewController.swift */,
+				9C7896212731E20000BE9C99 /* UserInfoViewController.swift */,
+				9C78962A2731E82600BE9C99 /* Cells */,
+				9C78962B2731E86700BE9C99 /* Extensions */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9C78962A2731E82600BE9C99 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9C7896272731E81200BE9C99 /* AlbumsTableViewCell.swift */,
+				9C78962C2731F41300BE9C99 /* SongsCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		9C78962B2731E86700BE9C99 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9C7896232731E34400BE9C99 /* ExtensionViewController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		9CD9EED427308CA9004E029A = {
 			isa = PBXGroup;
 			children = (
@@ -99,10 +140,8 @@
 		9CD9EEDF27308CA9004E029A /* ItunesAPI */ = {
 			isa = PBXGroup;
 			children = (
+				9C7896292731E81E00BE9C99 /* Controllers */,
 				9CD9EEE027308CA9004E029A /* AppDelegate.swift */,
-				9CD9EF1027308F2A004E029A /* AuthViewController.swift */,
-				9CD9EF12273094DC004E029A /* SignUpViewController.swift */,
-				9CD9EF1427309572004E029A /* AlbumsViewController.swift */,
 				9CD9EEE927308CAB004E029A /* Assets.xcassets */,
 				9CD9EEEB27308CAB004E029A /* LaunchScreen.storyboard */,
 				9CD9EEEE27308CAB004E029A /* Info.plist */,
@@ -258,7 +297,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CD9EF1527309572004E029A /* AlbumsViewController.swift in Sources */,
+				9C7896262731E62A00BE9C99 /* DetailAlbumViewController.swift in Sources */,
 				9CD9EF13273094DC004E029A /* SignUpViewController.swift in Sources */,
+				9C78962D2731F41300BE9C99 /* SongsCollectionViewCell.swift in Sources */,
+				9C7896282731E81200BE9C99 /* AlbumsTableViewCell.swift in Sources */,
+				9C7896242731E34400BE9C99 /* ExtensionViewController.swift in Sources */,
+				9C7896222731E20000BE9C99 /* UserInfoViewController.swift in Sources */,
 				9CD9EF1127308F2A004E029A /* AuthViewController.swift in Sources */,
 				9CD9EEE127308CA9004E029A /* AppDelegate.swift in Sources */,
 			);
@@ -431,6 +475,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7XP9H5G8CF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ItunesAPI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -446,7 +491,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -457,6 +502,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7XP9H5G8CF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ItunesAPI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -472,7 +518,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
