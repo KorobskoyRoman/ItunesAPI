@@ -41,6 +41,7 @@ class AuthViewController: UIViewController {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.placeholder = "Введите пароль"
+        textField.isSecureTextEntry = true
         return textField
     }()
     
@@ -102,9 +103,37 @@ class AuthViewController: UIViewController {
     }
     
     @objc private func signInButtonTapped() {
-        let navVC = UINavigationController(rootViewController: AlbumsViewController())
-        navVC.modalPresentationStyle = .fullScreen
-        self.present(navVC, animated: true)
+        
+        let mail = emailTextField.text ?? ""
+        let password = passwordTextField.text ?? ""
+        let user = findUserDataBase(mail: mail)
+        
+        if user == nil {
+            loginLabel.text = "Пользователь не найден!"
+            loginLabel.textColor = .red
+        } else if user?.password == password { //проверяем пароль и переходим на следующий конроллер
+            let navVC = UINavigationController(rootViewController: AlbumsViewController())
+            navVC.modalPresentationStyle = .fullScreen
+            self.present(navVC, animated: true)
+            
+            guard let activeUser = user else { return }
+            DataBase.shared.saveActiveUser(user: activeUser) //сохраняем зарегистрированного пользователя
+        } else {
+            alertOk(title: "Ошибка!", message: "Неверный пароль. Попробуйте ещё раз.")
+        }
+    }
+    
+    private func findUserDataBase(mail: String) -> User? { //находм пользователя в БД
+        
+        let dataBase = DataBase.shared.users
+        print(dataBase)
+        
+        for user in dataBase { //проверяем наличие пользователя по почте
+            if user.email == mail {
+                return user
+            }
+        }
+        return nil
     }
     
     //создаем переменные для стэк вью
@@ -118,6 +147,11 @@ class AuthViewController: UIViewController {
         setupViews()
         setupDelegate()
         setConstraint()
+        registerKeyboardNotification()
+    }
+    
+    deinit {
+        removeKeyboardNotification()
     }
 }
 
@@ -140,6 +174,35 @@ extension UIStackView {
         self.spacing = spacing
         self.distribution = distribution
         self.translatesAutoresizingMaskIntoConstraints = false
+    }
+}
+
+extension AuthViewController {
+    private func registerKeyboardNotification() { //регистрируем обсервер для отслеживания клавиатуры
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWllShow),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWllHide),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+    }
+    
+    private func removeKeyboardNotification() { //удаляем обсерверы после deinit viewController
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc private func keyboardWllShow(notification: Notification) {
+        let userInfo = notification.userInfo
+        let keyboardHeight = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue //получаем высоту клавиатуры
+        scrollView.contentOffset = CGPoint(x: 0, y: keyboardHeight.height / 2) //поднимаем scrollView на половину высоты клавиатуры
+    }
+    
+    @objc private func keyboardWllHide(notification: Notification) { //возвращаем в стандартное положение
+        scrollView.contentOffset = CGPoint.zero
     }
 }
 
